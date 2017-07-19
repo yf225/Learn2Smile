@@ -1,0 +1,24 @@
+<html>
+<head></head>
+<body>
+<h1>Learn2Smile - Frequency Decomposition</h1>
+
+<p>
+Here we show a typical ground truth seuqence for a specific VAE dimension (in this example, it's the dimension for mouth-open/mouth-closed movement, i.e. the "speaking" dimension), and its corresponding low-frequency and high-frequency components. The ground truth sequence is the sum of the low-frequency and high-frequency sequences at each frame.
+<br><br>
+From below, we can notice that the low-frequency component mainly controls the slow movements, which captures the big changes but doesn't have the subtle movements. On the other hand, the high-frequency component captures the subtle and quick movements. Hence when the two components are combined, the produced output shows the most naturalness and acts most similar to an actual human face.
+
+</p>
+
+<b>Ground truth:</b>
+<img style="width: 100%" src="https://s3.amazonaws.com/learn2smile/images/14894_2_avatar_ground_truth.png">
+<br>
+<b>Low frequency component:</b>
+<img style="width: 100%" src="https://s3.amazonaws.com/learn2smile/images/14894_2_avatar_ground_truth_low_freq.png">
+<br>
+<b>High frequency component:</b>
+<img style="width: 100%" src="https://s3.amazonaws.com/learn2smile/images/14894_2_avatar_ground_truth_high_freq.png">
+
+
+</body>
+</html>

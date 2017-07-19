@@ -1,0 +1,486 @@
+<html>
+<head></head>
+<body>
+<h1>Learn2Smile - Ablation Studies</h1> <!-- U, M0, M11, M16, M2, M15 -->
+
+<p>
+Here we are comparing the results from our model vs. ablation models for 30 <b>randomly chosen</b> ground truth videos. The ablation models are sorted by their effectiveness using the "L2 Error w/ Shift" measure detailed in the paper.<br><br>
+
+<b>On the left side:</b><br>
+The <b>1st</b> column shows the <u>ground truth of the user's facial expressions</u>.<br>
+The <b>2nd</b> column shows the <u>ground truth response of the agent</u>.<br>
+The <b>3rd</b> column shows the predicted response from our model, which has <u>two predictors for low-frequency and high-frequency components respectively</u>, and <u>uses both user's and agent's history as input signal</u>. <br><br>
+
+<b>On the right side:</b><br>
+The <b>4th</b> column shows the predicted response from our model <u>without frequency decomposition</u> (i.e. without splitting the output into low-frequency and high-frequency).<br>
+The <b>5th</b> column shows the predicted response from our model <u>without using agent's history as input signal</u>.<br>
+The <b>6th</b> column shows the predicted response from our model <u>without frequency decomposition</u>, and <u>without using agent's history as input signal</u>.<br><br>
+
+Note that the 30 videos shown are <b>randomly selected</b> from the hold-out test set.
+<br><br>
+
+Please see comments below for findings in each group.
+
+<br><br>
+(For comparison with baselines, please see: <a href="https://s3.amazonaws.com/learn2smile/supp/comparison_all_baselines.html" target="_blank">link</a>)
+
+</p>
+<hr>
+Group 1:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14894_2_1_all_models.gif">
+
+<p><b>Comment:</b> In this group, we can notice that:<br>
+1. The predicted response from models without frequency decompositon (4th and 6th column) looks robotic and not natural. This is because these two models are not predicting the high-frequency component, and thus losing a lot of the subtle movements that come with it. For a detailed comparison between the agent's ground truth sequence and its corresponding low-frequency and high-frequency components, please see: <a href="https://s3.amazonaws.com/learn2smile/supp/freq_decomposition.html" target="_blank">link</a>. <br>
+2. When the user (1st column) is not talking, we can see that both the agent's ground truth face (2nd column) and our model's predicted face (3rd column) start talking, which means that our model successfully learns the concept of taking turns during a conversation. Notice that the faces in 5th column and 6th columns have mouth movements as well, indicating that turn-taking is a relatively easy task to learn with these ablation models.
+<br>
+<hr>
+
+Group 2:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14937_1_1_all_models.gif">
+
+<p><b>Comment:</b> In this group, we can notice that:<br>
+1. When the user (1st column) is talking, our model (3rd column) is able to predict head nods and smiles, which are very natural responses to a talking person. Our model is able to learn these concepts without explicit labels of these movements in the dataset.
+<br>
+<hr>
+
+Group 3:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15118_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 4:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14894_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 5:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14673_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 6:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14506_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 7:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14204_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 8:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15118_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 9:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15090_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 10:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15090_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 11:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14173_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 12:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14173_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 13:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14204_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 14:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14231_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 15:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14231_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 16:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14506_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 17:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14673_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 18:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14713_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 19:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14713_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 20:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14937_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 21:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15107_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 22:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15107_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 23:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15044_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 24:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/15044_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 25:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14921_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 26:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14921_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 27:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14871_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 28:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14871_2_1_all_models.gif">
+<br>
+<hr>
+
+Group 29:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14688_1_1_all_models.gif">
+<br>
+<hr>
+
+Group 30:
+<table style="table-layout:fixed; width: 1280px">
+<tr>
+<td style="width: 200px">User, ground truth</td>
+<td style="width: 200px">Agent, ground truth</td>
+<td style="width: 250px">Agent, our model</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition</td>
+<td style="width: 200px">Agent, our model w/o agent history as input</td>
+<td style="width: 200px">Agent, our model w/o frequency decomposition and agent history as input</td>
+</tr>
+</table>
+<img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile/gifs/U_M0_M11_M16_M2_M15/14688_2_1_all_models.gif">
+
+
+</body>
+</html>
