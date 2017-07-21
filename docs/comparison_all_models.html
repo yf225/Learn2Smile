@@ -22,7 +22,7 @@ Note that the 30 videos shown are <b>randomly selected</b> from the hold-out tes
 Please see comments below for findings in each group.
 
 <br><br>
-(For comparison with baselines, please see: <a href="https://s3.amazonaws.com/learn2smile-data/supp/comparison_all_baselines.html" target="_blank">link</a>)
+(For comparison with baselines, please see: <a href="https://yf225.github.io/Learn2Smile/comparison_all_baselines" target="_blank">link</a>)
 
 </p>
 <hr>
@@ -40,7 +40,7 @@ Group 1:
 <img style="margin-left: -10px" src="https://s3.amazonaws.com/learn2smile-data/gifs/U_M0_M11_M16_M2_M15/14894_2_1_all_models.gif">
 
 <p><b>Comment:</b> In this group, we can notice that:<br>
-1. The predicted response from models without frequency decompositon (4th and 6th column) looks robotic and not natural. This is because these two models are not predicting the high-frequency component, and thus losing a lot of the subtle movements that come with it. For a detailed comparison between the agent's ground truth sequence and its corresponding low-frequency and high-frequency components, please see: <a href="https://s3.amazonaws.com/learn2smile-data/supp/freq_decomposition.html" target="_blank">link</a>. <br>
+1. The predicted response from models without frequency decompositon (4th and 6th column) looks robotic and not natural. This is because these two models are not predicting the high-frequency component, and thus losing a lot of the subtle movements that come with it. For a detailed comparison between the agent's ground truth sequence and its corresponding low-frequency and high-frequency components, please see: <a href="https://yf225.github.io/Learn2Smile/freq_decomposition" target="_blank">link</a>. <br>
 2. When the user (1st column) is not talking, we can see that both the agent's ground truth face (2nd column) and our model's predicted face (3rd column) start talking, which means that our model successfully learns the concept of taking turns during a conversation. Notice that the faces in 5th column and 6th columns have mouth movements as well, indicating that turn-taking is a relatively easy task to learn with these ablation models.
 <br>
 <hr>
